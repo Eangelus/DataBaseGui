@@ -162,8 +162,7 @@ class Ui_MainWindow(object):
         print("okay wird gedrück")
 
     def pressedEinfL(self):
-        self.auswahl1 = self.spinBox.value()
-        print(self.auswahl1)
+        pass
 
     def pressedEinfR(self):
         self.auswahl2 = self.spinBox_2.value()

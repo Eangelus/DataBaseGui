@@ -36,17 +36,6 @@ class MyDataBaseBot:
         r = self.bot_cursor.fetchall()
         return r
 
-    def enf(self, tablename, auswahl):
-        struk = self.zeige_struk(tablename)
-        print(struk + "*"*20)
-        i = struk.find("id")
-        print(i)
-
-        self.bot_cursor.execute("DELETE FROM "+tablename+" WHERE "+i+"="+auswahl)
-        print("LEckmichamarsch bot")
-
-
-
     def zeige_base(self):
         self.bot_cursor.execute("SHOW DATABASES")
         resulte = self.bot_cursor.fetchall()
@@ -72,6 +61,13 @@ class MyDataBaseBot:
         self.bot_cursor.close()
         self.base.close()
 
+    def enf(self, tablename, auswahl):
+        print(type(self.zeige_struk(tablename)))
+        st = [self.zeige_struk(tablename)]
+        print(st + "*"*2)
+        #self.bot_cursor.execute("DELETE FROM "+tablename+" WHERE "+struk[0]+"="+auswahl)
+        print("LEckmichamarsch bot")
+
     #---------------------------------------- geter / setter -------------------------------
     def get_tablename(self):
         return self.tablename
@@ -85,9 +81,3 @@ class MyDataBaseBot:
     def get_spaltenname(self, spaltenname):
         return self.spaltenname
 
-        """
-        self.vari = ""
-        self.nameDataBase = ""
-        self.id = ""
-        self.auswahl = ""
-"""

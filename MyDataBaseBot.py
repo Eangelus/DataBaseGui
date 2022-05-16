@@ -13,9 +13,6 @@ class MyDataBaseBot:
         print('connect done')
         self.bot_cursor = self.base.cursor()
         self.tablename = ""
-        #self.bot_cursor.execute("SHOW DATABASES")
-        #for db in self.bot_cursor:
-            #print(db)
         self.spaltenname = ""
         self.vari = ""
 
@@ -40,7 +37,12 @@ class MyDataBaseBot:
         return r
 
     def enf(self, tablename, auswahl):
-        self.bot_cursor.execute("DELETE FROM " + tablename + " WHERE id_eintrag=" + str(auswahl))
+        struk = self.zeige_struk(tablename)
+        print(struk + "*"*20)
+        i = struk.find("id")
+        print(i)
+
+        self.bot_cursor.execute("DELETE FROM "+tablename+" WHERE "+i+"="+auswahl)
         print("LEckmichamarsch bot")
 
 

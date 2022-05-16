@@ -1,8 +1,7 @@
 import datetime
-
-import gui.GuiMain
 from gui.GuiMain import *
 import MyDataBaseBot
+import sys
 
 class Mymain(Ui_MainWindow):
 
@@ -119,22 +118,28 @@ class Mymain(Ui_MainWindow):
     def pressedEinfL(self):
         self.auswahl1 = self.spinBox.value()
         print("hier setze ich mein valu")
-        print(self.bot.get_tablename())
-        self.bot.enf(self.bot.get_tablename(), self.auswahl1)
+
+        self.bot.enf(self.comboBox.currentText(), self.auswahl1)
         print("jetzt hab ich die funktion ausgeführt ")
 
 
     def pressedEinfR(self):
         self.auswahl2 = self.spinBox_2.value()
 
+    def start_ui(self):
+        self.app = QtWidgets.QApplication(sys.argv)
+        self.MainWindow = QtWidgets.QMainWindow()
+        self.ui = Mymain()
+        self.ui.setupUi(MainWindow)
+        self.ui.start_up_load()
+        self.MainWindow.show()
+        sys.exit(app.exec_())
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Mymain()
-    ui.setupUi(MainWindow)
-    ui.start_up_load()
-    MainWindow.show()
-    sys.exit(app.exec_())
+app = QtWidgets.QApplication(sys.argv)
+MainWindow = QtWidgets.QMainWindow()
+ui = Mymain()
+ui.setupUi(MainWindow)
+ui.start_up_load()
+MainWindow.show()
+sys.exit(app.exec_())

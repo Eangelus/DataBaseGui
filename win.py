@@ -1,6 +1,6 @@
 import datetime
 from gui.GuiMain import *
-import MyDataBaseBot
+from SqlController import MyDataBaseBot
 import sys
 
 class Mymain(Ui_MainWindow):

@@ -1,3 +1,5 @@
+import re
+
 import mysql.connector
 
 
@@ -62,11 +64,12 @@ class MyDataBaseBot:
         self.base.close()
 
     def enf(self, tablename, auswahl):
-        print(type(self.zeige_struk(tablename)))
-        st = [self.zeige_struk(tablename)]
-        print(st + "*"*2)
-        #self.bot_cursor.execute("DELETE FROM "+tablename+" WHERE "+struk[0]+"="+auswahl)
-        print("LEckmichamarsch bot")
+        print(tablename, auswahl)
+        a = self.zeige(tablename)
+        print(a)
+
+        self.bot_cursor.execute("DELETE FROM "+tablename+" WHERE id_eintrag="+auswahl)
+        print("löschen erfolgreich")
 
     #---------------------------------------- geter / setter -------------------------------
     def get_tablename(self):

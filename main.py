@@ -1,6 +1,7 @@
 
 
 if __name__ == "__main__":
-    import win
+    from gui import win
+
     mw = win.Mymain()
     mw.start_ui()

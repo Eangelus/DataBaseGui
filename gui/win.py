@@ -116,11 +116,7 @@ class Mymain(Ui_MainWindow):
 
 
     def pressedEinfL(self):
-        spinAuswahl = self.spinBox.value()
-        print(spinAuswahl)
-        print("hier setze ich mein valu")
-        print(self.comboBox.currentText())
-        self.bot.enf(self.comboBox.currentText(), spinAuswahl)
+        self.bot.enf(self.comboBox.currentText(), self.spinBox.value())
         print("jetzt hab ich die funktion ausgeführt ")
 
 
